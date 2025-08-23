@@ -5,7 +5,7 @@ const options = [
   {
     'number': '1',
     'selection': 'Rock',
-    'imageUrl': 'image/rock.jpg'
+    'imageUrl': 'images/rock.jpg'
   },
   {
     'number': '2',
@@ -15,13 +15,25 @@ const options = [
   {
     'number': '3',
     'selection': 'Scissors',
-    'imageUrl': 'scissors.jpg'
+    'imageUrl': 'images/scissors.jpg'
   }
 ]
 
-const userRotation = () => {
-  const image = document.createElement('img');
-  
+const userRotation = (optionsToPick) => {
+  const imageContainer = document.getElementById('userImageContainer');
+  let i = 0;
+  for (let o of optionsToPick) {
+    const image = document.createElement('img');
+    image.classList.add('topImages');
+    
+    if (i != 0) {
+      image.classList.add('hidden');
+    }
+    
+    image.src = o.imageUrl;
+    i++;
+    imageContainer.appendChild(image);
+  }
 }
 
 //Bot selects option at random
@@ -69,5 +81,10 @@ const decideWinner = (userDecision, botDecision) => {
   return decision;
 }
 
-console.log(decideWinner(selectOption, botSelection()));
+addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' ) {
+    selectPicture();
+  }
+});
 
+userRotation(options);

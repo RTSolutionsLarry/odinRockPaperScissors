@@ -1,20 +1,24 @@
 //Prompt user to select option
-let selectOption = prompt("Rock, Paper or Scissors? (don't forget to spell it correctly)", "Rock");
+//let selectOption = prompt("Rock, Paper or Scissors? (don't forget to spell it correctly)", "Rock");
 
 const options = [
   {
     'number': '1',
-    'selection': 'Rock'
+    'selection': 'Rock',
+    'imageUrl': 'image/rock.jpg'
   },
   {
     'number': '2',
-    'selection': 'Paper'
+    'selection': 'Paper', 
+    'imageUrl': 'images/paper.jpeg'
   },
   {
     'number': '3',
-    'selection': 'Scissors'
+    'selection': 'Scissors',
+    'imageUrl': 'scissors.jpg'
   }
 ]
+
 //Bot selects option at random
 const botSelection = () => {
   const randomNumber = Math.floor(Math.random() * 3);

@@ -19,6 +19,11 @@ const options = [
   }
 ]
 
+const userRotation = () => {
+  const image = document.createElement('img');
+  
+}
+
 //Bot selects option at random
 const botSelection = () => {
   const randomNumber = Math.floor(Math.random() * 3);

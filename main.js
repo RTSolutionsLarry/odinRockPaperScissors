@@ -33,7 +33,7 @@ const optionSetup = (optionsToPick) => {
     //makes user image clickable and runs the decideWinner function
     imageUser.addEventListener("click", (event) => {
       const winDecision = decideWinner('Rock',botSelection());
-      console.log(winDecision);
+      displayResults(winDecision);
     });
     imageUser.src = o.imageUrl;
     imageBot.src = o.imageUrl;
@@ -87,10 +87,18 @@ const decideWinner = (userDecision, botDecision) => {
   return decision;
 }
 
-addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' ) {
-    selectPicture();
+const displayResults = (winner) => {
+  switch (winner) {
+    case 'user':
+      alert('You win!');
+      break;
+    case 'bot':
+      alert('You lost')
+      break;
+    case 'tie':
+      alert('Tie... dang')
+      break;    
   }
-});
+}
 
 optionSetup(options);

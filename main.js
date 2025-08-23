@@ -19,20 +19,20 @@ const options = [
   }
 ]
 
-const userRotation = (optionsToPick) => {
-  const imageContainer = document.getElementById('userImageContainer');
+const optionSetup = (optionsToPick) => {
+  const ImageContainerUser = document.getElementById('userImageContainer');
+  const imageContainerBot = document.getElementById('botImageContainer');
   let i = 0;
   for (let o of optionsToPick) {
-    const image = document.createElement('img');
-    image.classList.add('topImages');
-    
-    if (i != 0) {
-      image.classList.add('hidden');
-    }
-    
-    image.src = o.imageUrl;
+    const imageUser = document.createElement('img');
+    const imageBot = document.createElement('img');
+    imageUser.classList.add('topImages');
+    imageBot.classList.add('topImages');
+    imageUser.src = o.imageUrl;
+    imageBot.src = o.imageUrl;
     i++;
-    imageContainer.appendChild(image);
+    ImageContainerUser.appendChild(imageUser);
+    imageContainerBot.appendChild(imageBot);
   }
 }
 
@@ -87,4 +87,4 @@ addEventListener('keydown', (event) => {
   }
 });
 
-userRotation(options);
+optionSetup(options);

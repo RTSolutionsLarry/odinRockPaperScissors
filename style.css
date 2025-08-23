@@ -15,4 +15,12 @@ body {
     width: 100vw;
     border: solid blue 1px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer {
+    height: 70%;
+    width: 50%;
+    border: solid red 1px;
 }

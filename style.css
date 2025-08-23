@@ -22,7 +22,6 @@ body {
 .imageContainer {
     height: 70%;
     width: 50%;
-    border: solid red 1px;
     display: flex;
     flex-basis: content;
     justify-content: space-evenly;

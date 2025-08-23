@@ -24,10 +24,17 @@ const optionSetup = (optionsToPick) => {
   const imageContainerBot = document.getElementById('botImageContainer');
   let i = 0;
   for (let o of optionsToPick) {
+    //creates img elements for bot and user
     const imageUser = document.createElement('img');
     const imageBot = document.createElement('img');
     imageUser.classList.add('topImages');
     imageBot.classList.add('topImages');
+    console.log(imageUser);
+    //makes user image clickable and runs the decideWinner function
+    imageUser.addEventListener("click", (event) => {
+      const winDecision = decideWinner('Rock',botSelection());
+      console.log(winDecision);
+    });
     imageUser.src = o.imageUrl;
     imageBot.src = o.imageUrl;
     i++;
@@ -45,7 +52,6 @@ const botSelection = () => {
 //Logic for deciding winner. Returns tie,user,bot or instructionsMessage
 const decideWinner = (userDecision, botDecision) => {
   let decision;
-  
   switch (userDecision) {
     case botDecision:
       decision = 'tie';

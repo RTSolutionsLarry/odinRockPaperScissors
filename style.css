@@ -17,6 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .imageContainer {
@@ -38,6 +39,10 @@ body {
 .bottomImages {
     height: 200px;
     width: 200px;    
+}
+
+p {
+    padding-bottom: 50px;;
 }
 
 #userImageContainer img:hover {

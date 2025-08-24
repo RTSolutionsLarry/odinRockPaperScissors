@@ -1,6 +1,9 @@
 //Prompt user to select option
 //let selectOption = prompt("Rock, Paper or Scissors? (don't forget to spell it correctly)", "Rock");
 
+let humanScore = 0;
+let computerScore = 0;
+
 const options = [
   {
     'number': '1',
@@ -28,14 +31,15 @@ const optionSetup = (optionsToPick) => {
     const imageUser = document.createElement('img');
     const imageBot = document.createElement('img');
     imageUser.classList.add('topImages');
+    imageUser.setAttribute('id', o.selection);
     imageBot.classList.add('bottomImages');
-    console.log(imageUser);
     //makes user image clickable and runs the decideWinner function
     imageUser.addEventListener("click", (event) => {
       setTimeout(function() {
-        const winDecision = decideWinner('Rock',botSelection());
+        const winDecision = decideWinner(event.target.id,getComputerChoice());
         displayResults(winDecision);
-      }, 2000)
+        displayScore();
+      }, 1000)
 
     });
     imageUser.src = o.imageUrl;
@@ -47,7 +51,7 @@ const optionSetup = (optionsToPick) => {
 }
 
 //Bot selects option at random
-const botSelection = () => {
+const getComputerChoice = () => {
   const randomNumber = Math.floor(Math.random() * 3);
   return options[randomNumber].selection;
 }
@@ -93,10 +97,14 @@ const decideWinner = (userDecision, botDecision) => {
 const displayResults = (winner) => {
   switch (winner) {
     case 'user':
+      humanScore = humanScore + 1;
       alert('You win!');
+
       break;
     case 'bot':
+      computerScore = computerScore + 1;      
       alert('You lost')
+
       break;
     case 'tie':
       alert('Tie... dang')
@@ -104,4 +112,12 @@ const displayResults = (winner) => {
   }
 }
 
+const displayScore = () => {
+  let humanScoreText = document.getElementById('humanScore');
+  let computerScoreText = document.getElementById('computerScore');
+  humanScoreText.textContent = `Human Score: ${humanScore}`;
+  computerScoreText.textContent = `Computer Score: ${computerScore}`;
+}
+
 optionSetup(options);
+

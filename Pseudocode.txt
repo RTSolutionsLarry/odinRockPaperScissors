@@ -1,5 +1,4 @@
-User selects Rock, Paper, Scissors using Prompt
+User selects Rock, Paper, Scissors by clicking on image
 Bot selects Rock, Paper, Scissors randomly
 Winner is decided
 Winner is congratulated using Alert
-User is asked to play again

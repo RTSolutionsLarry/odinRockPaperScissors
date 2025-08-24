@@ -20,7 +20,7 @@ body {
 }
 
 .imageContainer {
-    height: 70%;
+    height: 80%;
     width: 50%;
     display: flex;
     flex-basis: content;
@@ -31,4 +31,16 @@ body {
 .topImages {
     height: 200px;
     width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bottomImages {
+    height: 200px;
+    width: 200px;    
+}
+
+#userImageContainer img:hover {
+    background-color: gray;
+    transform: scale(1.2);
 }

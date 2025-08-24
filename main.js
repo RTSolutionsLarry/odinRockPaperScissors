@@ -28,12 +28,15 @@ const optionSetup = (optionsToPick) => {
     const imageUser = document.createElement('img');
     const imageBot = document.createElement('img');
     imageUser.classList.add('topImages');
-    imageBot.classList.add('topImages');
+    imageBot.classList.add('bottomImages');
     console.log(imageUser);
     //makes user image clickable and runs the decideWinner function
     imageUser.addEventListener("click", (event) => {
-      const winDecision = decideWinner('Rock',botSelection());
-      displayResults(winDecision);
+      setTimeout(function() {
+        const winDecision = decideWinner('Rock',botSelection());
+        displayResults(winDecision);
+      }, 2000)
+
     });
     imageUser.src = o.imageUrl;
     imageBot.src = o.imageUrl;

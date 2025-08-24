@@ -1,8 +1,6 @@
-//Prompt user to select option
-//let selectOption = prompt("Rock, Paper or Scissors? (don't forget to spell it correctly)", "Rock");
-
 let humanScore = 0;
 let computerScore = 0;
+let gameRound = 0;
 
 const options = [
   {
@@ -33,10 +31,10 @@ const optionSetup = (optionsToPick) => {
     imageUser.classList.add('topImages');
     imageUser.setAttribute('id', o.selection);
     imageBot.classList.add('bottomImages');
-    //makes user image clickable and runs the decideWinner function
+    //makes user image clickable and runs the playRound function
     imageUser.addEventListener("click", (event) => {
       setTimeout(function() {
-        const winDecision = decideWinner(event.target.id,getComputerChoice());
+        const winDecision = playRound(event.target.id,getComputerChoice());
         displayResults(winDecision);
         displayScore();
       }, 1000)
@@ -57,7 +55,7 @@ const getComputerChoice = () => {
 }
 
 //Logic for deciding winner. Returns tie,user,bot or instructionsMessage
-const decideWinner = (userDecision, botDecision) => {
+const playRound = (userDecision, botDecision) => {
   let decision;
   switch (userDecision) {
     case botDecision:
@@ -99,16 +97,24 @@ const displayResults = (winner) => {
     case 'user':
       humanScore = humanScore + 1;
       alert('You win!');
-
+      gameRound = gameRound + 1;
       break;
     case 'bot':
       computerScore = computerScore + 1;      
       alert('You lost')
-
+      gameRound = gameRound + 1;
       break;
     case 'tie':
       alert('Tie... dang')
+      gameRound = gameRound + 1;      
       break;    
+  }
+
+  if (gameRound === 5) {
+    alert(`Final Score: Human - ${humanScore} Computer - ${computerScore}`);
+    humanScore = 0;
+    computerScore = 0;
+    gameRound = 0;
   }
 }
 

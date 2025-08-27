@@ -110,7 +110,7 @@ const displayResults = (winner) => {
       break;    
   }
 
-  if (gameRound === 5) {
+  if (humanScore === 5 || computerScore === 5) {
     alert(`Final Score: Human - ${humanScore} Computer - ${computerScore}`);
     humanScore = 0;
     computerScore = 0;
